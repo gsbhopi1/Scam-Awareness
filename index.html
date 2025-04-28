@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scam Awareness Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<header class="logo-wrapper">
+  <div class="logo-box">
+    <div class="logo-icon">
+      <!-- Simple SVG credit card + bug icon -->
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+        <circle cx="17" cy="13" r="3"></circle>
+        <line x1="17" y1="10" x2="17" y2="16"></line>
+        <line x1="14" y1="13" x2="20" y2="13"></line>
+      </svg>
+    </div>
+    <div class="logo-text">ScamScanner</div>
+  </div>
+</header>
+
+<body>
+  <!-- Dark Mode Toggle Button -->
+  <button id="toggleTheme" class="theme-toggle">🌙 Dark Mode</button>
+
+  <h1>Welcome to Scam Awareness Portal</h1>
+
+  <div class="columns">
+    <a href="learn.html" class="column">
+      <img src="https://cdn-icons-png.flaticon.com/128/1828/1828817.png" alt="Learn Icon">
+      <span>Learn About Scams</span>
+    </a>
+
+    <a href="resources.html" class="column">
+      <img src="https://cdn-icons-png.flaticon.com/128/2921/2921222.png" alt="Resources Icon">
+      <span>Resources</span>
+    </a>
+
+    <a href="referrals.html" class="column">
+      <img src="https://cdn-icons-png.flaticon.com/128/535/535234.png" alt="Referrals Icon">
+      <span>Certified Referral Links</span>
+    </a>
+
+    <a href="helpline.html" class="column">
+      <img src="https://cdn-icons-png.flaticon.com/128/3050/3050525.png" alt="Helpline Icon">
+      <span>Helpline & Report Scam</span>
+    </a>
+
+    <a href="report.html" class="column">
+      <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" alt="Report Icon">
+      <span>Report a Scam</span>
+    </a>
+
+    <!-- ✅ New Apply Now Column -->
+    <a href="apply.html" class="column">
+      <img src="https://cdn-icons-png.flaticon.com/128/1828/1828925.png" alt="Apply Icon">
+      <span>Apply Now</span>
+    </a>
+  </div>
+
+  <footer>
+    <a href="about.html">About Us</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="faq.html">FAQ</a>
+  </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggleBtn = document.getElementById('toggleTheme');
+
+    function updateButtonText() {
+      const isDark = document.body.classList.contains('dark-mode');
+      toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      updateButtonText();
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+    }
+
+    updateButtonText();
+  </script>
+
+  <!-- Glitter Layer -->
+  <div class="glitter-layer" id="glitterLayer"></div>
+
+  <script>
+    const glitterLayer = document.getElementById('glitterLayer');
+    const numGlitters = 40; // Number of sparkles
+
+    for (let i = 0; i < numGlitters; i++) {
+      const glitter = document.createElement('div');
+      glitter.classList.add('glitter');
+      glitter.style.top = `${Math.random() * 100}%`;
+      glitter.style.left = `${Math.random() * 100}%`;
+      glitter.style.animationDelay = `${Math.random() * 5}s`;
+      glitter.style.animationDuration = `${2 + Math.random() * 3}s`;
+      glitterLayer.appendChild(glitter);
+    }
+  </script>
+
+</body>
+</html>

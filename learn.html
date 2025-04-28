@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learn About Scams</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="toggleTheme" class="theme-toggle">🌙 Dark Mode</button>
+  <div class="container">
+    <h2>Learn About Scams</h2>
+    <p>Click on each section to learn more about different types of scams and how to protect yourself.</p>
+
+    <details>
+      <summary>🔹 1. Phishing Scams</summary>
+      <p>Phishing scams typically come through emails, text messages, or fake websites. They trick you into clicking malicious links or entering your login credentials.</p>
+      <ul>
+        <li>Don't click on suspicious links.</li>
+        <li>Verify the sender's email or message.</li>
+        <li>Use multi-factor authentication on accounts.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🔹 2. Online Shopping Scams</summary>
+      <p>Fake online stores trick users into paying for goods that never arrive or are poor quality.</p>
+      <ul>
+        <li>Check reviews and domain age of the website.</li>
+        <li>Use secure payment methods like credit cards.</li>
+        <li>Be cautious of "too good to be true" deals.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🔹 3. Job & Loan Scams</summary>
+      <p>Scammers promise fake jobs or loans and ask for personal documents or upfront payments.</p>
+      <ul>
+        <li>Never pay money to get a job or loan.</li>
+        <li>Check if the company is legally registered.</li>
+        <li>Avoid sharing personal data without verification.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🔹 4. Tech Support Scams</summary>
+      <p>Scammers pretend to be from Microsoft, Apple, etc., saying your device has a problem and offering fake support.</p>
+      <ul>
+        <li>Don’t give remote access to unknown people.</li>
+        <li>Official companies never call you unexpectedly.</li>
+        <li>Hang up and contact real support via official websites.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>🔹 5. Investment & Crypto Scams</summary>
+      <p>These scams promise high returns through fake investments, often in cryptocurrency or stocks.</p>
+      <ul>
+        <li>Always research before investing.</li>
+        <li>Be skeptical of guaranteed profits.</li>
+        <li>Use only certified financial advisors or platforms.</li>
+      </ul>
+    </details>
+
+    <br>
+    <p><strong>Stay informed, stay alert, and never hesitate to report suspicious activity.</strong></p>
+
+    <footer>
+      <a href="index.html">← Back to Home</a>
+    </footer>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById('toggleTheme');
+
+    function updateButtonText() {
+        const isDark = document.body.classList.contains('dark-mode');
+        toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        updateButtonText();
+        localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+    updateButtonText();
+</script>
+<!-- Glitter Layer -->
+<div class="glitter-layer" id="glitterLayer"></div>
+
+<script>
+  const glitterLayer = document.getElementById('glitterLayer');
+  const numGlitters = 40; // Change this for more or fewer sparkles
+
+  for (let i = 0; i < numGlitters; i++) {
+    const glitter = document.createElement('div');
+    glitter.classList.add('glitter');
+    glitter.style.top = `${Math.random() * 100}%`;
+    glitter.style.left = `${Math.random() * 100}%`;
+    glitter.style.animationDelay = `${Math.random() * 5}s`;
+    glitter.style.animationDuration = `${2 + Math.random() * 3}s`;
+    glitterLayer.appendChild(glitter);
+  }
+</script>
+
+</body>
+</html>

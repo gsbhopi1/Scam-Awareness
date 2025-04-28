@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submitted Report</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 800px;
+    }
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    .report {
+      background-color: #fafafa;
+      margin: 10px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📢 Scam Report Submitted</h2>
+    <div id="reportDetails">
+      <!-- Latest report will be inserted here -->
+    </div>
+    <footer>
+      <a href="report.html">← Back to Report Form</a>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Retrieve the latest report from localStorage
+      const report = JSON.parse(localStorage.getItem('latestReport'));
+
+      // If no report exists in localStorage, show a message
+      if (!report) {
+        document.getElementById('reportDetails').innerHTML = '<p>No report has been submitted yet.</p>';
+        return;
+      }
+
+      // Display the report details
+      const reportDiv = document.createElement('div');
+      reportDiv.classList.add('report');
+      reportDiv.innerHTML = `
+        <h4>Latest Report</h4>
+        <p><strong>How did you receive the communication?</strong> ${report.communication || 'Not provided'}</p>
+        <p><strong>Category of Scam:</strong> ${report.category || 'Not provided'}</p>
+        <p><strong>Attach Screenshot:</strong> ${report.screenshot ? 'File attached' : 'Not provided'}</p>
+        <p><strong>Date & Time of Incident:</strong> ${report.datetime || 'Not provided'}</p>
+        <p><strong>Complaint Details:</strong> ${report.details || 'Not provided'}</p>
+        <p><strong>First Name:</strong> ${report.firstName || 'Not provided'}</p>
+        <p><strong>Last Name:</strong> ${report.lastName || 'Not provided'}</p>
+        <p><strong>Phone Number (Received Scam):</strong> ${report.phone || 'Not provided'}</p>
+      `;
+      document.getElementById('reportDetails').appendChild(reportDiv);
+    });
+  </script>
+</body>
+</html>
